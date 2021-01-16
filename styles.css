@@ -1,3 +1,10 @@
 body {
+  display: flex;
   background-color: aquamarine;
+}
+section {
+  margin: auto;
+}
+button {
+  margin: auto;
 }
