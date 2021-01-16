@@ -4,7 +4,8 @@ html{
 body {
   min-height: 100%;
   display: flex;
-  background-color: aquamarine;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(17,172,43,1) 50%, rgba(0,212,255,1) 100%)
 }
 h1{
   text-align: center;
