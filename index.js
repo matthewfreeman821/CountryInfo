@@ -27,6 +27,7 @@ async function fetchData(countryName){
 function createDataItem(info){
   let p = document.createElement('p');
   p.textContent = info;
+  p.className = 'is-flex m-6';
   return p;
 }
 
