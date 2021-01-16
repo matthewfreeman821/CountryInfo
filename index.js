@@ -1,5 +1,22 @@
-const first = document.getElementById('first');
+//Selects elements on the page
+const searchBtn = document.getElementById('button');
+const countryInput = document.getElementById('country');
+const header = document.getElementById('title');
+const input = document.getElementById('input');
 
-first.innerHTML = 'Hello World!!!'
+//Initializes the variable used to search
+let country;
 
-console.log('JS File connected!')
+
+//Function to search for a country
+function searchForCountry(){
+  header.innerHTML = country;
+  console.log(country);
+};
+
+
+//Function to update value of variable country
+countryInput.addEventListener("change", () => {
+  console.log(countryInput.value);
+  country = countryInput.value;
+});

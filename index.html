@@ -11,13 +11,13 @@
 <body>
   <section class="section is-flex">
     <div class='container is-flex is-flex-direction-column'>
-      <h1 class='is-size-1 mb-6'>Would You Like To Know More?</h1>
-      <div class="field has-addons is flex is-justify-content-center">
+      <h1 id='title' class='is-size-1 mb-6'>Would You Like To Know More?</h1>
+      <div id ='input' class="field has-addons is flex is-justify-content-center">
         <div class="control">
-          <input class="input" type="text" placeholder="Enter a country">
+          <input id='country' class="input" type="text" placeholder="Enter a country" value=''>
         </div>
         <div class="control">
-          <a class="button is-info">
+          <a id='button' class="button is-info" onclick='searchForCountry()'>
             Search
           </a>
         </div>
