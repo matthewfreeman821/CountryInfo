@@ -6,6 +6,10 @@ body {
   display: flex;
   background-color: aquamarine;
 }
+h1{
+  text-align: center;
+  margin: auto;
+}
 section {
   margin: auto;
 }
