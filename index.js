@@ -8,7 +8,7 @@ const para = document.getElementsByName('p');
 
 //Initializes the variable used to search and display
 let country, countryData;
-let displayData = ['capital', 'population', 'region'];
+let displayData = ['Capital', 'Population', 'Region'];
 
 //Function to update value of variable country
 countryInput.addEventListener("change", () => {
@@ -16,22 +16,23 @@ countryInput.addEventListener("change", () => {
 });
 
 //Function to fetch API data and display in html
+//Needs refactoring
 async function fetchData(countryName){
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
   countryData = await res.json();
   if(dataDisplay.childElementCount === 0){
     for(let i=0; i<displayData.length; i++){
-      dataDisplay.appendChild(createDataItem(displayData[i] + ':' + countryData[0][displayData[i]]));
+      dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i].toLowerCase()]));
     } 
   } else {
-      while(dataDisplay.childElementCount > 0){
-        dataDisplay.removeChild(dataDisplay.childNodes[dataDisplay.childElementCount - 1]);
-      }
-      for(let i=0; i<displayData.length; i++){
-        dataDisplay.appendChild(createDataItem(displayData[i] + ':' + countryData[0][displayData[i]]));
-      } 
+    while(dataDisplay.childElementCount > 0){
+      dataDisplay.removeChild(dataDisplay.childNodes[dataDisplay.childElementCount - 1]);
     }
-  };
+    for(let i=0; i<displayData.length; i++){
+      dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i]]));
+    } 
+  }
+};
 
 //Funciton to create paragraph element for data display
 function createDataItem(info){
