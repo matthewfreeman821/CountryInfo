@@ -29,7 +29,7 @@ async function fetchData(countryName){
       dataDisplay.removeChild(dataDisplay.childNodes[dataDisplay.childElementCount - 1]);
     }
     for(let i=0; i<displayData.length; i++){
-      dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i]]));
+      dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i].toLowerCase()]));
     } 
   }
 };
