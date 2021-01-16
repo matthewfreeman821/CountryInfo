@@ -4,14 +4,14 @@ const countryInput = document.getElementById('country');
 const header = document.getElementById('title');
 const input = document.getElementById('input');
 
-//Initializes the variable used to search
-let country;
+//Initializes the variable used to search and display
+let country, countryData;
 
 
 //Function to search for a country and update display
 function searchForCountry(){
   header.innerHTML = country;
-  console.log(country);
+  fetchData(country);
 };
 
 
@@ -21,10 +21,8 @@ countryInput.addEventListener("change", () => {
 });
 
 //Function to fetch API data
-const fetchData = async () => {
-  const res = await fetch('https://restcountries.eu/rest/v2/name/ireland')
-  const countryData = await res.json();
-  console.log(countryData);
+async function fetchData(countryName){
+  const res = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
+  countryData = await res.json();
+  return countryData;
 };
-
-fetchData();
