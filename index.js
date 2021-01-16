@@ -8,7 +8,7 @@ const input = document.getElementById('input');
 let country;
 
 
-//Function to search for a country
+//Function to search for a country and update display
 function searchForCountry(){
   header.innerHTML = country;
   console.log(country);
@@ -17,6 +17,14 @@ function searchForCountry(){
 
 //Function to update value of variable country
 countryInput.addEventListener("change", () => {
-  console.log(countryInput.value);
   country = countryInput.value;
 });
+
+//Function to fetch API data
+const fetchData = async () => {
+  const res = await fetch('https://restcountries.eu/rest/v2/name/ireland')
+  const countryData = await res.json();
+  console.log(countryData);
+};
+
+fetchData();
