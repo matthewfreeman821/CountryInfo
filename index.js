@@ -3,7 +3,7 @@ const searchBtn = document.getElementById('button');
 const countryInput = document.getElementById('country');
 const header = document.getElementById('title');
 const input = document.getElementById('input');
-const section = document.getElementById('section');
+const dataDisplay = document.getElementById('data');
 
 //Initializes the variable used to search and display
 let country, countryData;
@@ -19,7 +19,7 @@ async function fetchData(countryName){
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
   countryData = await res.json();
   for(let i=0; i<displayData.length; i++){
-    section.appendChild(createDataItem(countryData[0][displayData[i]]));
+    dataDisplay.appendChild(createDataItem(countryData[0][displayData[i]]));
   };
 };
 
