@@ -15,7 +15,7 @@ countryInput.addEventListener("change", () => {
   country = countryInput.value;
 });
 
-//Function to fetch API data
+//Function to fetch API data and display in html
 async function fetchData(countryName){
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
   countryData = await res.json();
@@ -24,8 +24,8 @@ async function fetchData(countryName){
       dataDisplay.appendChild(createDataItem(displayData[i] + ':' + countryData[0][displayData[i]]));
     } 
   } else {
-      for(let j=0; j<dataDisplay.childElementCount; j++){
-        dataDisplay.removeChild(dataDisplay.childNodes[j]);
+      while(dataDisplay.childElementCount > 0){
+        dataDisplay.removeChild(dataDisplay.childNodes[dataDisplay.childElementCount - 1]);
       }
       for(let i=0; i<displayData.length; i++){
         dataDisplay.appendChild(createDataItem(displayData[i] + ':' + countryData[0][displayData[i]]));
