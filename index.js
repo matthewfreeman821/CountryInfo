@@ -16,26 +16,26 @@ countryInput.addEventListener("change", () => {
 });
 
 //Function to fetch API data and display in html
-//Needs refactoring
-async function fetchData(countryName){
+async function fetchData(countryName) {
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
   countryData = await res.json();
-  if(dataDisplay.childElementCount === 0){
-    for(let i=0; i<displayData.length; i++){
+  if (dataDisplay.childElementCount === 0) {
+    for (let i = 0; i < displayData.length; i++) {
+      //Break this out to its own fucntion
       dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i].toLowerCase()]));
-    } 
+    }
   } else {
-    while(dataDisplay.childElementCount > 0){
+    while (dataDisplay.childElementCount > 0) {
       dataDisplay.removeChild(dataDisplay.childNodes[dataDisplay.childElementCount - 1]);
     }
-    for(let i=0; i<displayData.length; i++){
+    for (let i = 0; i < displayData.length; i++) {
       dataDisplay.appendChild(createDataItem(displayData[i] + ': ' + countryData[0][displayData[i].toLowerCase()]));
-    } 
+    }
   }
 };
 
 //Funciton to create paragraph element for data display
-function createDataItem(info){
+function createDataItem(info) {
   let p = document.createElement('p');
   p.textContent = info;
   p.className = 'is-flex m-4';
@@ -43,7 +43,7 @@ function createDataItem(info){
 }
 
 //Function to search for a country and update display
-function searchForCountry(){
+function searchForCountry() {
   header.innerHTML = country;
   fetchData(country);
 };
